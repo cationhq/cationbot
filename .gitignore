@@ -1,0 +1,22 @@
+# Environment.
+.venv
+.env
+
+# Editors / IDEs.
+.idea
+*.iml
+.vscode/*
+
+# Keep vscode settings and recommended extensions.
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Python
+*.pyc
+*.egg-info
+__pycache__
+
+# Testing and code coverage.
+.coverage
+.pytest_cache
+tests/build

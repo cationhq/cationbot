@@ -1,0 +1,41 @@
+{
+  // Exclude files/directories from side bar.
+  "files.exclude": {
+    "**/.git": true,
+    "**/.venv": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/.coverage": true,
+    "**/.pytest_cache": true
+  },
+
+  // Association of files that vscode cannot identify the syntax.
+  "files.associations": {
+    ".coveragerc": "ini"
+  },
+
+  // Python (pylance)
+  "python.pythonPath": "${workspaceFolder}/.venv",
+  "python.languageServer": "Pylance",
+
+  // Isort
+  "python.sortImports.path": "${workspaceFolder}/.venv/Scripts/isort.exe",
+  "python.sortImports.args": [],
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+
+  // Black
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["-l", "79"],
+  "python.formatting.blackPath": "${workspaceFolder}/.venv/Scripts/black.exe",
+
+  // Markdownlint
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": true
+    }
+  }
+}

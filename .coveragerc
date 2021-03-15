@@ -1,0 +1,17 @@
+[run]
+source = cationbot
+
+[report]
+fail_under = 99
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self\.debug
+    raise AssertionError
+    raise NotImplementedError
+omit =
+    *__main__.py
+    */core/bot.py
+
+[html]
+directory = tests/build/coverage
