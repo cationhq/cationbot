@@ -12,6 +12,7 @@ def test_find_role_by_name_should_return_none_if_role_is_not_found(
 
     mocker.patch.dict("cationbot.models.roles.tech_roles", {})
     mocker.patch.dict("cationbot.models.roles.hierarchy_roles", {})
+    mocker.patch.dict("cationbot.models.roles.special_roles", {})
 
     guild = mocker.MagicMock()
 
@@ -39,6 +40,7 @@ def test_find_role_by_name_should_call_utils_from_discord_lib(
 
     mocker.patch.dict("cationbot.models.roles.tech_roles", {role: role_id})
     mocker.patch.dict("cationbot.models.roles.hierarchy_roles", {})
+    mocker.patch.dict("cationbot.models.roles.special_roles", {})
 
     assert role == find_role_by_name(
         role=role,

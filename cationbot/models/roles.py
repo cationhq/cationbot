@@ -3,7 +3,7 @@ from typing import NoReturn, Optional
 
 from discord import Guild, Member, Role, utils
 
-from cationbot.core.roles import hierarchy_roles, tech_roles
+from cationbot.core.roles import hierarchy_roles, special_roles, tech_roles
 
 
 def find_role_by_name(role: str, guild: Guild) -> Optional[Role]:
@@ -20,6 +20,7 @@ def find_role_by_name(role: str, guild: Guild) -> Optional[Role]:
     role_id = {
         **tech_roles,
         **hierarchy_roles,
+        **special_roles,
     }.get(role)
 
     if not role_id:
