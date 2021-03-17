@@ -25,7 +25,7 @@ bot = Bot(
 @bot.event
 async def on_ready():
     """When bot is ready to receive commands."""
-    activity = Activity(type=ActivityType.watching, name="Jom & Jerry")
+    activity = Activity(type=ActivityType.watching, name="Tom & Jerry")
     await bot.change_presence(activity=activity)
 
 
