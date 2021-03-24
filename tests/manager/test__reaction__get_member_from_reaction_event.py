@@ -2,7 +2,6 @@ from unittest.mock import AsyncMock
 
 import pytest
 
-from cationbot.manager.message import get_message_from_channel
 from cationbot.manager.reaction import get_member_from_reaction_event
 
 

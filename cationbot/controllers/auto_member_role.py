@@ -27,7 +27,7 @@ async def toggle_member_role(bot: Bot, event: RawReactionActionEvent):
             role = utils.get(guild.roles, id=core.env.MEMBERS_ROLE_ID)
             if not role:
                 logging.info(
-                    "Failed to edit the member role on reaction to rules message.",
+                    "Failed to set member role on reaction to rules message.",
                     bot,
                     event,
                 )

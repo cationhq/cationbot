@@ -4,6 +4,8 @@ from pydantic import BaseSettings
 
 
 class Environment(BaseSettings):
+    """The environment variables from app."""
+
     # The prefix for bot commands.
     PREFIX: Optional[str]
 
