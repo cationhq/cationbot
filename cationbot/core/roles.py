@@ -1,12 +1,7 @@
-# Hierarchy roles.
-hierarchy_roles = {
-    "ADM": 815360633461538816,
-    "👮 Moderadores": 820888904450179102,
-    "👤 Membros": 820887362732163102,
-}
-
-# Emoji key / Role ID.
-tech_roles = {
+# Mapping the roles by emoji name.
+#
+# The key is the emoji name, the value is the role ID.
+language_roles = {
     "clang": 821604198453477386,
     "clojure": 821606189778731019,
     "cpp": 821606312059469865,
@@ -33,5 +28,7 @@ tech_roles = {
     "vue": 821608962611871774,
 }
 
-# Misc / Special roles.
-special_roles = {}
+misc_roles = {
+    "qualityassurance": 821619404798033950,
+    "video_game": 822562222227324938,
+}

@@ -3,12 +3,10 @@ from discord.activity import Activity
 from discord.enums import ActivityType
 from discord.ext.commands import Bot
 
-from cationbot.controllers.auto_role import (
-    toggle_member_role,
-    toggle_tech_role,
-)
+from cationbot.controllers.auto_custom_role import toggle_custom_role
+from cationbot.controllers.auto_member_role import toggle_member_role
 
-from .settings import settings
+from .env import env
 
 bot = Bot(
     # https://discordpy.readthedocs.io/en/latest/api.html#intents
@@ -17,7 +15,7 @@ bot = Bot(
         messages=True,
         reactions=True,
     ),
-    command_prefix=settings.COMMAND_PREFIX,
+    command_prefix=env.PREFIX,
     help_command=None,
 )
 
@@ -35,7 +33,7 @@ async def on_raw_reaction_add(
 ):  # pragma: no cover
     """On add any reaction on any server message."""
     await toggle_member_role(bot=bot, event=event)
-    await toggle_tech_role(bot=bot, event=event)
+    await toggle_custom_role(bot=bot, event=event)
 
 
 @bot.event
@@ -44,7 +42,7 @@ async def on_raw_reaction_remove(
 ):  # pragma: no cover
     """On remove any reaction on any server message."""
     await toggle_member_role(bot=bot, event=event)
-    await toggle_tech_role(bot=bot, event=event)
+    await toggle_custom_role(bot=bot, event=event)
 
 
 @bot.event
@@ -52,4 +50,4 @@ async def on_message(message: Message):  # pragma: no cover
     """On any new message."""
     if isinstance(message.channel, DMChannel) and message.author != bot.user:
         """Reply to direct messages."""
-        await message.channel.send(settings.DEFAULT_DIRECT_MESSAGE_RESPONSE)
+        await message.channel.send(env.DEFAULT_DM_RESPONSE)
