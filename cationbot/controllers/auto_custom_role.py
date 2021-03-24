@@ -34,8 +34,8 @@ async def toggle_custom_role(bot: Bot, event: RawReactionActionEvent):
         if not role:
             logging.info(
                 "Failed to edit the member custom role.",
-                bot,
-                event,
+                f"Bot: {bot}",
+                f"Event: {event}",
             )
             return
 

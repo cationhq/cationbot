@@ -9,7 +9,7 @@ def test_should_logging_and_check_role_by_id(faker, mocker):
     member_has_role(member, role_id)
 
     info.assert_called_once_with(
-        f"Checking if member has role by ID: {role_id}.", member
+        f"Checking if '{member.nick}' has role by ID: {role_id}."
     )
 
 
@@ -21,5 +21,5 @@ def test_should_logging_and_check_role_by_name(faker, mocker):
     member_has_role(member, role_name)
 
     info.assert_called_once_with(
-        f"Checking if member has role by name: {role_name}.", member
+        f"Checking if '{member.nick}' has role by name: {role_name}."
     )

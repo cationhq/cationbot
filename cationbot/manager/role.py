@@ -40,10 +40,10 @@ def member_has_role(member: Member, role: Union[str, int]) -> bool:
         True if the member has the role. Otherwise, False.
     """
     if isinstance(role, int):
-        logging.info(f"Checking if member has role by ID: {role}.", member)
+        logging.info(f"Checking if '{member.nick}' has role by ID: {role}.")
         roles = [r for r in member.roles if r.id == role]
     else:
-        logging.info(f"Checking if member has role by name: {role}.", member)
+        logging.info(f"Checking if '{member.nick}' has role by name: {role}.")
         roles = [r for r in member.roles if r.name == role]
 
     return any(roles)

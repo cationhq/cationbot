@@ -28,8 +28,8 @@ async def toggle_member_role(bot: Bot, event: RawReactionActionEvent):
             if not role:
                 logging.info(
                     "Failed to set member role on reaction to rules message.",
-                    bot,
-                    event,
+                    f"Bot: {bot}",
+                    f"Event: {event}",
                 )
                 return
 

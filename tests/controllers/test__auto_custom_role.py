@@ -180,8 +180,8 @@ async def test_should_not_add_or_remove_the_custom_role_if_the_role_is_not_found
     utils_get.assert_called_once_with(guild_roles, id=lang_id)
     info.assert_called_once_with(
         "Failed to edit the member custom role.",
-        bot,
-        event,
+        f"Bot: {bot}",
+        f"Event: {event}",
     )
 
 
