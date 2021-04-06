@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cationbot"
-version = "0.1.0"
+version = "1.1.0"
 description = "A Bot to manage our server on Discord."
 authors = ["Renan Gomes <renan.gomes@live.com>"]
 license = "MIT"
