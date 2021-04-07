@@ -12,13 +12,6 @@ class Environment(BaseSettings):
     # The token provided by Discord dashboard.
     TOKEN: Optional[str]
 
-    # Guild stuff
-    GUILD_ID: Optional[int]
-
-    # Channels stuff
-    ROLES_CHANNEL_ID: Optional[int]
-    RULES_CHANNEL_ID: Optional[int]
-
     # Messages stuff
     ROLES_MESSAGE_ID: Optional[int]
     RULES_MESSAGE_ID: Optional[int]
