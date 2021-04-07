@@ -51,5 +51,5 @@ class AutoMember(commands.Cog):
                     await member.remove_roles(role)
 
 
-def setup(client):  # noqa: D103
+def setup(client):  # noqa: D103 pragma: no cover
     client.add_cog(AutoMember(client))
