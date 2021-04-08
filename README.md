@@ -1,4 +1,4 @@
-# Cationbot [![Code style: black][4]][5]
+# Cationbot [![Code style: black][5]][6]
 
 Bot responsável por gerenciar nosso servidor do Discord.
 
@@ -11,10 +11,11 @@ Veja [como contribuir](./.github/CONTRIBUTING.md).
 | Branch      | Status        |
 | ----------- | ------------- |
 | main        | [![CI][1]][3] |
-| development | [![CI][2]][3] |
+| development | [![CI][2]][4] |
 
 [1]: https://github.com/cationhq/cationbot/actions/workflows/ci.yml/badge.svg?branch=main
 [2]: https://github.com/cationhq/cationbot/actions/workflows/ci.yml/badge.svg?branch=development
-[3]: https://github.com/cationhq/cationbot/actions/workflows/ci.yml
-[4]: https://img.shields.io/badge/code%20style-black-000000.svg
-[5]: https://github.com/psf/black
+[3]: https://github.com/cationhq/cationbot/actions/workflows/ci.yml?query=branch%3Amain
+[4]: https://github.com/cationhq/cationbot/actions/workflows/ci.yml?query=branch%3Adevelopment
+[5]: https://img.shields.io/badge/code%20style-black-000000.svg
+[6]: https://github.com/psf/black
