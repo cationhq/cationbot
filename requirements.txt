@@ -1,3 +1,4 @@
+Warning: The lock file is not up to date with the latest changes in pyproject.toml. You may be getting outdated dependencies. Run update to update them.
 aiohttp==3.7.4.post0; python_version >= "3.6" and python_full_version >= "3.5.3" \
     --hash=sha256:3cf75f7cdc2397ed4442594b935a11ed5569961333d49b7539ea741be2cc79d5 \
     --hash=sha256:4b302b45040890cea949ad092479e01ba25911a15e648429c7c5aae9650c67a8 \
@@ -45,9 +46,9 @@ attrs==20.3.0; python_version >= "3.6" and python_full_version >= "3.5.3" \
 chardet==4.0.0; python_version >= "3.6" and python_full_version >= "3.5.3" \
     --hash=sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5 \
     --hash=sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa
-discord.py==1.6.0; python_full_version >= "3.5.3" \
-    --hash=sha256:3df148daf6fbcc7ab5b11042368a3cd5f7b730b62f09fb5d3cbceff59bcfbb12 \
-    --hash=sha256:ba8be99ff1b8c616f7b6dcb700460d0222b29d4c11048e74366954c465fdd05f
+discord.py==1.7.1; python_full_version >= "3.5.3" \
+    --hash=sha256:399b80d576a63fa901300e80080568e1d9cd9c21260ca622fd7145c0009278fa \
+    --hash=sha256:82bc5e6325ab7557db9c466f638c98e18be03c330f56ad9bf4c18bdcf19faf55
 idna==3.1; python_version >= "3.6" and python_full_version >= "3.5.3" \
     --hash=sha256:5205d03e7bcbb919cc9c19885f9920d622ca52448306f2377daede5cf3faac16 \
     --hash=sha256:c5b02147e01ea9920e6b0a3f1f7bb833612d507592c837a6c49552768f4054e1
@@ -112,9 +113,9 @@ pydantic==1.8.1; python_full_version >= "3.6.1" \
     --hash=sha256:e8bc082afef97c5fd3903d05c6f7bb3a6af9fc18631b4cc9fedeb4720efb0c58 \
     --hash=sha256:e3f8790c47ac42549dc8b045a67b0ca371c7f66e73040d0197ce6172b385e520 \
     --hash=sha256:26cf3cb2e68ec6c0cfcb6293e69fb3450c5fd1ace87f46b64f678b0d29eac4c3
-python-dotenv==0.15.0; python_full_version >= "3.6.1" \
-    --hash=sha256:587825ed60b1711daea4832cf37524dfd404325b7db5e25ebe88c495c9f807a0 \
-    --hash=sha256:0c8d1b80d1a1e91717ea7d526178e3882732420b03f08afea0406db6402e220e
+python-dotenv==0.17.0; python_full_version >= "3.6.1" \
+    --hash=sha256:471b782da0af10da1a80341e8438fca5fadeba2881c54360d5fd8d03d03a4f4a \
+    --hash=sha256:49782a97c9d641e8a09ae1d9af0856cc587c8d2474919342d5104d85be9890b2
 typing-extensions==3.7.4.3; python_version >= "3.6" and python_full_version >= "3.6.1" \
     --hash=sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f \
     --hash=sha256:7cb407020f00f7bfc3cb3e7881628838e69d8f3fcab2f64742a5e76b2f841918 \
