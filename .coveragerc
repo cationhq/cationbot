@@ -1,6 +1,9 @@
 [run]
 source = cationbot
 
+[xml]
+output=tests/build/coverage.xml
+
 [report]
 fail_under = 99
 exclude_lines =

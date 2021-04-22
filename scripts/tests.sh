@@ -1,1 +1,1 @@
-poetry run pytest --cov -v
+poetry run pytest --cov --cov-report=xml -v
