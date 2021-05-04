@@ -16,6 +16,9 @@ class Environment(BaseSettings):
     ROLES_MESSAGE_ID: Optional[int]
     RULES_MESSAGE_ID: Optional[int]
 
+    # Channels stuff
+    ROLES_CHANNEL_ID: Optional[int]
+
     # Hierarchy roles.
     ADMINISTRATORS_ROLE_ID: Optional[int]
     MEMBERS_ROLE_ID: Optional[int]
