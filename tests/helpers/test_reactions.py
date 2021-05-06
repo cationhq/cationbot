@@ -1,46 +1,34 @@
-import asyncio
-from unittest.mock import AsyncMock
-
 import pytest
 
 from cationbot.helpers.reactions import remove_reactions_from_message
 
+MODULE = "cationbot.helpers.reactions"
+
 
 @pytest.mark.asyncio
-async def test_remove_reactions_from_message_should_remove_all_reactions_from_the_message_specified(
-    faker,
+async def test_remove_reactions_from_message_should_remove_reaction_from_message(
     mocker,
+    use_member,
+    use_message,
 ):
-    ab = AsyncMock()
-    ab.flatten = []
-
-    x = AsyncMock()
-    x.users.return_value = ab
-    # x.users.return_value.flatten.return_value = []
-
-    # reaction = AsyncMock()
-    # reaction.users.return_value = []
-    # reaction.users().flatten.return_value = []
-    message = AsyncMock()
-    message.id = faker.pyint()
-    message.content = faker.word()
-    message.reactions = [x]
-    member = AsyncMock()
-    member.nick = faker.user_name()
-
-    info = mocker.patch("cationbot.helpers.roles.logging.info")
+    logging_info = mocker.patch(f"{MODULE}.logging.info")
 
     await remove_reactions_from_message(
-        message=message,
-        member=member,
+        message=use_message,
+        member=use_member,
     )
 
-    # get.assert_called_once_with(member.roles, id=role.id)
-    info.assert_called_once_with(
-        f"Removendo todas as reações do membro {member.nick}"
-        f" da mensagem {message.id} - {message.content}."
+    logging_info.assert_called_once_with(
+        f"Removendo todas as reações do membro {use_member.nick}"
+        f" da mensagem {use_message.id} - {use_message.content}."
     )
-    # member.remove_roles.assert_called_with(
-    #     member.roles,
-    #     reason=reason,
-    # )
+    # use_message fixture generate just one reaction.
+    message_reaction = use_message.reactions[0]
+
+    message_reaction.users.assert_called_once()
+    message_reaction.users.return_value.flatten.assert_awaited_once()
+
+    use_message.remove_reaction.assert_called_once_with(
+        emoji=message_reaction.emoji,
+        member=use_member,
+    )

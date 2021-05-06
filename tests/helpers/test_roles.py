@@ -4,38 +4,31 @@ import pytest
 
 from cationbot.helpers.roles import remove_all_roles
 
+MODULE = "cationbot.helpers.roles"
+
 
 @pytest.mark.asyncio
 async def test_remove_all_roles_should_remove_all_roles_from_member(
     faker,
     mocker,
+    use_guild,
+    use_member,
 ):
-    role = AsyncMock()
-    role.name = faker.word()
-    role.id = faker.pyint()
+    logging_info = mocker.patch(f"{MODULE}.logging.info")
+    utils_get = mocker.patch(f"{MODULE}.get", return_value=use_guild.roles)
 
-    guild = AsyncMock()
-    guild.roles = [role]
-    member = AsyncMock()
-    member.roles = [role]
-    member.nick = faker.user_name()
-    member.remove_roles.return_value = []
     reason = faker.word()
 
-    get = mocker.patch("cationbot.helpers.roles.get", return_value=guild.roles)
-    info = mocker.patch("cationbot.helpers.roles.logging.info")
-
     await remove_all_roles(
-        guild=guild,
-        member=member,
+        guild=use_guild,
+        member=use_member,
         reason=reason,
     )
 
-    get.assert_called_once_with(member.roles, id=role.id)
-    info.assert_called_once_with(
-        f"Removendo todos os cargos do membro {member.nick}"
+    logging_info.assert_called_once_with(
+        f"Removendo todos os cargos do membro {use_member.nick}"
     )
-    member.remove_roles.assert_called_with(
-        member.roles,
-        reason=reason,
+    utils_get.assert_called_once_with(
+        use_guild.roles,
+        id=use_member.roles[0].id,
     )
