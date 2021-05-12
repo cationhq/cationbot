@@ -11,7 +11,7 @@ async def test_remove_reactions_from_message_should_remove_reaction_from_message
     use_member,
     use_message,
 ):
-    logging_info = mocker.patch(f"{MODULE}.logging.info")
+    logging_info = mocker.patch(f"{MODULE}.info")
 
     await remove_reactions_from_message(
         message=use_message,

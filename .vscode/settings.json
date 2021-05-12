@@ -16,7 +16,6 @@
 
   // Python (pylance)
   "python.pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
-  "python.languageServer": "Pylance",
 
   // Isort
   "python.sortImports.path": "${workspaceFolder}/.venv/Scripts/isort.exe",

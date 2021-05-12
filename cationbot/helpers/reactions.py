@@ -1,10 +1,17 @@
-import logging
+from logging import info
 
 from discord import Member, Message
 
 
 async def remove_reactions_from_message(message: Message, member: Member):
-    logging.info(
+    """
+    Remove all reactions from a member on a specific message.
+
+    Args:
+        - message: the message object.
+        - member: the member object.
+    """
+    info(
         f"Removendo todas as reações do membro {member.nick}"
         f" da mensagem {message.id} - {message.content}."
     )

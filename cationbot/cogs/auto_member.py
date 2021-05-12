@@ -2,12 +2,13 @@ import logging
 from typing import NoReturn
 
 from discord import RawReactionActionEvent
+from discord.channel import TextChannel
 from discord.ext import commands
 from discord.utils import get
 
 from cationbot import core
 from cationbot.helpers.reactions import remove_reactions_from_message
-from cationbot.helpers.roles import remove_all_roles
+from cationbot.helpers.roles import add_role_to_user, remove_all_roles
 
 
 class AutoMember(commands.Cog):
@@ -31,6 +32,19 @@ class AutoMember(commands.Cog):
         await self._toggle(event)
 
     async def _toggle(self, event: RawReactionActionEvent) -> NoReturn:
+        """
+        Add/Remove the membership role from an user.
+
+        The automatic member feature will work when the user reacts to a
+        specific message with a known emoji. For this, we chose the "✅"
+        emoji as a sign of reading and acceptance of the rules. Once the
+        user reacts to the message with this emoji, the role will be
+        automatically assigned.
+
+        Likewise, if the user removes the emoji from the message, the
+        membership role will be removed. Once he loses his membership, all
+        other roles will be removed.
+        """
         if (
             event.emoji.name == "✅"
             and event.message_id == core.env.RULES_MESSAGE_ID
@@ -41,12 +55,11 @@ class AutoMember(commands.Cog):
             if member:
                 if event.event_type == "REACTION_ADD":
                     role = get(guild.roles, id=core.env.MEMBERS_ROLE_ID)
-                    if member and role:
-                        logging.info(
-                            f"Atribuindo o cargo {role.name} "
-                            f"para o usuário {member.nick}"
-                        )
-                        await member.add_roles(role)
+                    await add_role_to_user(
+                        role,
+                        member,
+                        "Aceitação das regras",
+                    )
                 elif event.event_type == "REACTION_REMOVE":
                     roles_channel = self.bot.get_channel(
                         core.env.ROLES_CHANNEL_ID
@@ -58,7 +71,11 @@ class AutoMember(commands.Cog):
                         member=member,
                         message=message,
                     )
-                    await remove_all_roles(guild=guild, member=member)
+                    await remove_all_roles(
+                        guild,
+                        member,
+                        "Remoção da aceitação das regras",
+                    )
 
 
 def setup(client):  # noqa: D103 pragma: no cover
