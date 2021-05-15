@@ -24,6 +24,9 @@ class Environment(BaseSettings):
     # The default message to responds to direct messages.
     DEFAULT_DM_RESPONSE: Optional[str]
 
+    # Misc.
+    CHANGE_PRESENCE_IN_MINUTES: Optional[int]
+
     class Config:
         case_sensitive = True
         env_file = ".env"
