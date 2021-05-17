@@ -1,7 +1,10 @@
-from discord import Activity, ActivityType, DMChannel, Intents, Message
-from discord.ext.commands import Bot
+from random import choice
 
-from .env import env
+from discord import DMChannel, Intents, Message
+from discord.ext.commands import Bot
+from discord.ext.tasks import loop
+
+from . import activities, env
 
 bot = Bot(
     # https://discordpy.readthedocs.io/en/latest/api.html#intents
@@ -15,11 +18,17 @@ bot = Bot(
 )
 
 
-@bot.event
-async def on_ready():
-    """When bot is ready to receive commands."""
-    activity = Activity(type=ActivityType.watching, name="Tom & Jerry")
+@loop(minutes=env.CHANGE_PRESENCE_IN_MINUTES)
+async def change_presence():  # noqa: D102
+    activity = choice(activities)
     await bot.change_presence(activity=activity)
+
+
+@bot.event
+async def on_ready():  # noqa: D102
+    """When bot is ready to receive commands."""
+    await bot.wait_until_ready()
+    change_presence.start()
 
 
 @bot.event
