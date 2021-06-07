@@ -17,9 +17,7 @@ class Environment(BaseSettings):
     RULES_MESSAGE_ID: Optional[int]
 
     # Hierarchy roles.
-    ADMINISTRATORS_ROLE_ID: Optional[int]
     MEMBERS_ROLE_ID: Optional[int]
-    MODERATORS_ROLE_ID: Optional[int]
 
     # The default message to responds to direct messages.
     DEFAULT_DM_RESPONSE: Optional[str]
