@@ -19,7 +19,9 @@ bot = Bot(
 
 
 @loop(minutes=env.CHANGE_PRESENCE_IN_MINUTES)
-async def change_presence():  # noqa: D102
+async def change_presence():
+    """Loop for change the bot presence."""
+
     activity = choice(activities)
     await bot.change_presence(activity=activity)
 

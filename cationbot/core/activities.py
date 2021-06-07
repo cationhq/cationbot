@@ -30,8 +30,11 @@ watching = [
 ]
 
 activities = [
-    *[Game(name=g) for g in games],
-    *[Activity(type=ActivityType.watching, name=w) for w in watching],
-    *[Streaming(name=s, url="https://twitch.tv") for s in streaming],
-    *[Activity(type=ActivityType.listening, name=l) for l in listening],
+    *[Game(name=game) for game in games],
+    *[Activity(type=ActivityType.watching, name=watch) for watch in watching],
+    *[Streaming(name=stream, url="https://twitch.tv") for stream in streaming],
+    *[
+        Activity(type=ActivityType.listening, name=listen)
+        for listen in listening
+    ],
 ]
