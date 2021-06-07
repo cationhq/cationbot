@@ -17,9 +17,9 @@ class Environment(BaseSettings):
     RULES_MESSAGE_ID: Optional[int]
 
     # Suggestions
-    SUGGESTIONS_CHANNEL_ID: int
-    SUGGESTIONS_USELESS_EMOJI: str
-    SUGGESTIONS_USEFULL_EMOJI: str
+    SUGGESTIONS_CHANNEL_ID: Optional[int]
+    SUGGESTIONS_USELESS_EMOJI: Optional[str]
+    SUGGESTIONS_USEFULL_EMOJI: Optional[str]
 
     # Hierarchy roles.
     MEMBERS_ROLE_ID: Optional[int]

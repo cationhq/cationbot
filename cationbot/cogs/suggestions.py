@@ -1,17 +1,16 @@
 from discord import Message
-from discord.ext.commands import Cog
+from discord.ext import commands
 
-from cationbot.core.bot import Bot
 from cationbot.core.env import env
 
 
-class Suggestions(Cog):
+class Suggestions(commands.Cog):
     """Auto add useless/usefull reactions to message on suggestion channel."""
 
-    def __init__(self, bot: Bot):
+    def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @Cog.listener()
+    @commands.Cog.listener()
     async def on_message(self, message: Message):
         """Handle the message event."""
 
