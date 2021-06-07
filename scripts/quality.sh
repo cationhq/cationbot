@@ -1,3 +1,6 @@
+set -e
+set -x
+
 # The source path.
 APP_PATH=cationbot
 
