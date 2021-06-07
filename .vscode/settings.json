@@ -15,10 +15,10 @@
   },
 
   // Python (pylance)
-  "python.pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.pythonPath": "${workspaceFolder}/.venv/scripts/python",
 
   // Isort
-  "python.sortImports.path": "${workspaceFolder}/.venv/Scripts/isort.exe",
+  "python.sortImports.path": "${workspaceFolder}/.venv/scripts/isort",
   "python.sortImports.args": [],
   "[python]": {
     "editor.codeActionsOnSave": {
@@ -29,7 +29,7 @@
   // Black
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": ["-l", "79"],
-  "python.formatting.blackPath": "${workspaceFolder}/.venv/Scripts/black.exe",
+  "python.formatting.blackPath": "${workspaceFolder}/.venv/scripts/black",
 
   // Markdownlint
   "[markdown]": {

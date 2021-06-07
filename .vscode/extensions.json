@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "ms-python.python",
+    "ms-python.vscode-pylance",
     "brainfit.vscode-importmagic",
     "bungcip.better-toml",
     "EditorConfig.EditorConfig",
