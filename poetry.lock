@@ -123,6 +123,9 @@ category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 
+[package.dependencies]
+toml = {version = "*", optional = true, markers = "extra == \"toml\""}
+
 [package.extras]
 toml = ["toml"]
 
@@ -470,7 +473,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "bebcc1590a124e2bae524ead7ae7122c2805249c6ab4f095ccc4130ee49aec28"
+content-hash = "dfe53979cb9519b8fbffcab471723652331e56b8a7303c350ae62307e7892c51"
 
 [metadata.files]
 aiohttp = [
