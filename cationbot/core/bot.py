@@ -8,7 +8,7 @@ from . import activities, env
 
 bot = Bot(
     # https://discordpy.readthedocs.io/en/latest/api.html#intents
-    intents=Intents.default(),
+    intents=Intents.all(),
     command_prefix=env.PREFIX,
     help_command=None,
 )
