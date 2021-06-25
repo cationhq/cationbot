@@ -23,7 +23,7 @@ class Environment(BaseSettings):
 
     # Roles stuff
     MEMBERS_ROLE_ID: Optional[int]
-    EMOJI_ROLES: Dict[str, int]
+    EMOJI_ROLES: Optional[Dict[str, int]] = {}
 
     # The default message to responds to direct messages.
     DEFAULT_DM_RESPONSE: Optional[str]
