@@ -40,8 +40,8 @@ async def test_toggle_should_bypass_if_emoji_name_is_not_present_on_available_ro
     event = AsyncMock()
     event.emoji.name = faker.word()
 
-    mocker.patch("cationbot.cogs.auto_role.core.language_roles", {})
-    mocker.patch("cationbot.cogs.auto_role.core.misc_roles", {})
+    env = mocker.patch("cationbot.cogs.auto_role.env")
+    env.EMOJI_ROLES = {}
 
     auto_role = AutoRole(bot=bot)
     await auto_role._toggle(event)
@@ -64,13 +64,9 @@ async def test_toggle_should_bypass_if_reaction_is_not_on_rules_message(
     event.emoji.name = role_name
     event.message_id = event_message_id
 
-    mocker.patch(
-        "cationbot.cogs.auto_role.core.language_roles",
-        {role_name: role_id},
-    )
-    mocker.patch("cationbot.cogs.auto_role.core.misc_roles", {})
-    env = mocker.patch("cationbot.cogs.auto_role.core.env")
+    env = mocker.patch("cationbot.cogs.auto_role.env")
     env.ROLES_MESSAGE_ID = roles_message_id
+    env.EMOJI_ROLES = {role_name: role_id}
 
     auto_role = AutoRole(bot=bot)
     await auto_role._toggle(event)
@@ -103,14 +99,10 @@ async def test_toggle_should_bypass_if_user_does_not_have_the_member_role(
     event.guild_id = guild_id
     event.user_id = user_id
 
-    mocker.patch(
-        "cationbot.cogs.auto_role.core.language_roles",
-        {role_name: role_id},
-    )
-    mocker.patch("cationbot.cogs.auto_role.core.misc_roles", {})
-    env = mocker.patch("cationbot.cogs.auto_role.core.env")
+    env = mocker.patch("cationbot.cogs.auto_role.env")
     env.ROLES_MESSAGE_ID = message_id
     env.MEMBERS_ROLE_ID = member_role_id
+    env.EMOJI_ROLES = {role_name: role_id}
     get = mocker.patch("cationbot.cogs.auto_role.get", return_value=None)
 
     auto_role = AutoRole(bot=bot)
@@ -149,14 +141,10 @@ async def test_toggle_should_bypass_if_role_not_found(
     event.guild_id = guild_id
     event.user_id = user_id
 
-    mocker.patch(
-        "cationbot.cogs.auto_role.core.language_roles",
-        {role_name: role_id},
-    )
-    mocker.patch("cationbot.cogs.auto_role.core.misc_roles", {})
-    env = mocker.patch("cationbot.cogs.auto_role.core.env")
+    env = mocker.patch("cationbot.cogs.auto_role.env")
     env.ROLES_MESSAGE_ID = message_id
     env.MEMBERS_ROLE_ID = member_role_id
+    env.EMOJI_ROLES = {role_name: role_id}
     get = mocker.patch(
         "cationbot.cogs.auto_role.get", side_effect=[role, None]
     )
@@ -205,14 +193,10 @@ async def test_toggle_should_add_role_if_event_type_is_REACTION_ADD(
     event.user_id = user_id
     event.event_type = "REACTION_ADD"
 
-    mocker.patch(
-        "cationbot.cogs.auto_role.core.language_roles",
-        {role_name: role_id},
-    )
-    mocker.patch("cationbot.cogs.auto_role.core.misc_roles", {})
-    env = mocker.patch("cationbot.cogs.auto_role.core.env")
+    env = mocker.patch("cationbot.cogs.auto_role.env")
     env.ROLES_MESSAGE_ID = message_id
     env.MEMBERS_ROLE_ID = member_role_id
+    env.EMOJI_ROLES = {role_name: role_id}
     get = mocker.patch(
         "cationbot.cogs.auto_role.get", side_effect=[role, role_to_add]
     )
@@ -268,14 +252,10 @@ async def test_toggle_should_remove_role_if_event_type_is_different_than_REACTIO
     event.user_id = user_id
     event.event_type = event_type
 
-    mocker.patch(
-        "cationbot.cogs.auto_role.core.language_roles",
-        {role_name: role_id},
-    )
-    mocker.patch("cationbot.cogs.auto_role.core.misc_roles", {})
-    env = mocker.patch("cationbot.cogs.auto_role.core.env")
+    env = mocker.patch("cationbot.cogs.auto_role.env")
     env.ROLES_MESSAGE_ID = message_id
     env.MEMBERS_ROLE_ID = member_role_id
+    env.EMOJI_ROLES = {role_name: role_id}
     get = mocker.patch(
         "cationbot.cogs.auto_role.get", side_effect=[role, role_to_remove]
     )

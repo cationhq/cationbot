@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Dict, Optional
 
 from pydantic import BaseSettings
 
@@ -21,8 +21,9 @@ class Environment(BaseSettings):
     SUGGESTIONS_USELESS_EMOJI: Optional[str]
     SUGGESTIONS_USEFULL_EMOJI: Optional[str]
 
-    # Hierarchy roles.
+    # Roles stuff
     MEMBERS_ROLE_ID: Optional[int]
+    EMOJI_ROLES: Optional[Dict[str, int]] = {}
 
     # The default message to responds to direct messages.
     DEFAULT_DM_RESPONSE: Optional[str]
