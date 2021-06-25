@@ -28,7 +28,7 @@ output="tests/build/coverage.xml"
 fail_under = 99
 exclude_lines = [
   "pragma: no cover",
-  "def __repr__"
+  "def setup(client)*"
 ]
 omit = [
   "*__main__.py",
