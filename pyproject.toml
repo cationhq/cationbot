@@ -40,7 +40,7 @@ directory = "tests/build/coverage"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-"discord.py" = "^1.7.2"
+"discord.py" = "^1.7.3"
 pydantic = {extras = ["dotenv"], version = "^1.8.2"}
 
 [tool.poetry.dev-dependencies]

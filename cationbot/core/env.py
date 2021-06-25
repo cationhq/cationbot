@@ -29,7 +29,7 @@ class Environment(BaseSettings):
     DEFAULT_DM_RESPONSE: Optional[str]
 
     # Misc.
-    CHANGE_PRESENCE_IN_MINUTES: Optional[int]
+    CHANGE_PRESENCE_IN_MINUTES: int = 5
 
     class Config:
         case_sensitive = True
