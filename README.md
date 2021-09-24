@@ -2,7 +2,7 @@
 
 Bot responsável por gerenciar nosso servidor do Discord.
 
-[![Discord Invite](https://discordapp.com/api/guilds/813821382617726988/embed.png?style=banner2)](https://discord.gg/2GVnd6sqxj)
+[![Discord Invite](https://discordapp.com/api/guilds/813821382617726988/embed.png?style=banner2)](https://discord.gg/WBJGa4k3Gz)
 
 Veja [como contribuir](./.github/CONTRIBUTING.md).
 
